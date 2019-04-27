@@ -21,8 +21,8 @@ namespace SuperHeroes.Controllers
         // member methods
         public ActionResult Index()
         {
-            var superheroes = db.Superheroes.Select(s => s);
-            return View();
+            var superheroes = db.Superheroes.Select(s => s).ToList();
+            return View(superheroes);
         }
 
         public ActionResult About()

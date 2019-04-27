@@ -20,6 +20,8 @@ namespace SuperHeroes.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser> // database for creating tables
     {
+        public DbSet<Superhero> Superheroes { get; set;  }
+
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SuperHeroes.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,8 +9,19 @@ namespace SuperHeroes.Controllers
 {
     public class HomeController : Controller
     {
+        // member variables
+        ApplicationDbContext db;
+
+        // constructor
+        public HomeController()
+        {
+            db = new ApplicationDbContext(); // instantiate new database with context
+        }
+
+        // member methods
         public ActionResult Index()
         {
+            var superheroes = db.Superheroes.Select(s => s);
             return View();
         }
 

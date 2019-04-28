@@ -5,7 +5,7 @@
     }
 
 
-    <img src="~/Content/Images/spidey.jpg" width =" 30%" height=" auto"/>
+    <img src="~/Content/Images/spidey.jpg" width ="30%" height="auto"/>
     <div>
         <table>
         @{ foreach (Superhero superhero in Model)
@@ -20,6 +20,9 @@
                 </td>     
                <td>
                    @Html.ActionLink("Details", "Details", new { Id = superhero.Id})
+               </td>
+               <td>
+                   @Html.ActionLink("Edit", "Edit", new { Id = superhero.Id})
                </td>
            </tr>    
                 

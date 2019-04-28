@@ -43,5 +43,11 @@ namespace SuperHeroes.Controllers
             var superhero = db.Superheroes.Where(s => s.Id == Id).FirstOrDefault();
             return View(superhero);
         }
+
+        public ActionResult Edit(int Id)
+        {
+            var superhero = db.Superheroes.Where(s => s.Id == Id).FirstOrDefault();
+            return View(superhero);
+        }
     }
 }

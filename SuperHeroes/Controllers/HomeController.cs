@@ -67,5 +67,14 @@ namespace SuperHeroes.Controllers
             var superhero = db.Superheroes.Where(s => s.Id == Id).FirstOrDefault();
             return View(superhero);
         }
+
+        [HttpPost]
+        public ActionResult Delete(Superhero superhero)
+        {
+            var deletedSuperhero = db.Superheroes.Where(s => s.Id == superhero.Id).FirstOrDefault();
+            db.Superheroes.Remove(deletedSuperhero);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }

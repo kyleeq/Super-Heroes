@@ -45,7 +45,7 @@ namespace SuperHeroes.Tests.Controllers
             HomeController controller = new HomeController();
 
             // Act
-            ViewResult result = controller.Contact() as ViewResult;
+            ViewResult result = controller.Details() as ViewResult;
 
             // Assert
             Assert.IsNotNull(result);

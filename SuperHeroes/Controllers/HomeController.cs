@@ -30,17 +30,17 @@ namespace SuperHeroes.Controllers
             Superhero superhero = new Superhero();
             return View(superhero);
         }
-
+        [HttpPost]
         public ActionResult Create(Superhero superhero)
         {
             db.Superheroes.Add(superhero);
             db.SaveChanges();
-            return View("Index");
+            return RedirectToAction("Index");
         }
 
-        public ActionResult Contact()
+        public ActionResult Details()
         {
-            ViewBag.Message = "Your contact page.";
+            
 
             return View();
         }

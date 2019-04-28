@@ -1,4 +1,5 @@
-﻿@model List<SuperHeroes.Models.Superhero>
+﻿@using SuperHeroes.Models;
+@model List<SuperHeroes.Models.Superhero>
     @{
         ViewBag.Title = "Home Page";
     }
@@ -6,10 +7,21 @@
 
     <img src="~/Content/Images/spidey.jpg" width =" 30%" height=" auto"/>
     <div>
-        @{ for (int i = 0; i < Model.Count; i++)
+        <table>
+        @{ foreach (Superhero superhero in Model)
            {
-
-                Html.DisplayFor(model => model[i]);
+        <div>
+            <tr>
+                <td>
+                    @Html.DisplayFor(model => superhero.name)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => superhero.primaryAbility)
+                </td>                
+            </tr>
+        </div>
+                
            }
         }
+        </table>
     </div>

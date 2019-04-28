@@ -10,16 +10,18 @@
         <table>
         @{ foreach (Superhero superhero in Model)
            {
-        <div>
-            <tr>
+        
+           <tr>
                 <td>
                     @Html.DisplayFor(model => superhero.name)
-                </td>
+                </td>               
                 <td>
                     @Html.DisplayFor(model => superhero.primaryAbility)
-                </td>                
-            </tr>
-        </div>
+                </td>     
+               <td>
+                   @Html.ActionLink("Details", "Details", new { Id = superhero.Id})
+               </td>
+           </tr>    
                 
            }
         }

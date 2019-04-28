@@ -38,11 +38,10 @@ namespace SuperHeroes.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult Details()
+        public ActionResult Details(int Id)
         {
-            
-
-            return View();
+            var superhero = db.Superheroes.Where(s => s.Id == Id).FirstOrDefault();
+            return View(superhero);
         }
     }
 }

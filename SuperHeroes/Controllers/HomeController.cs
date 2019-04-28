@@ -49,5 +49,23 @@ namespace SuperHeroes.Controllers
             var superhero = db.Superheroes.Where(s => s.Id == Id).FirstOrDefault();
             return View(superhero);
         }
+        [HttpPost]
+        public ActionResult Edit(Superhero superhero)
+        {
+            var edittedSuperhero = db.Superheroes.Where(s => s.Id == superhero.Id).FirstOrDefault();
+            edittedSuperhero.name = superhero.name;
+            edittedSuperhero.alterEgo = superhero.alterEgo;
+            edittedSuperhero.primaryAbility = superhero.primaryAbility;
+            edittedSuperhero.secondaryAbility = superhero.secondaryAbility;
+            edittedSuperhero.catchPhrase = superhero.catchPhrase;
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult Delete(int Id)
+        {
+            var superhero = db.Superheroes.Where(s => s.Id == Id).FirstOrDefault();
+            return View(superhero);
+        }
     }
 }

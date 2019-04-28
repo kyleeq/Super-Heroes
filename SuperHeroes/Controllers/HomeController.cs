@@ -25,11 +25,17 @@ namespace SuperHeroes.Controllers
             return View(superheroes);
         }
 
-        public ActionResult About()
+        public ActionResult Create()
         {
-            ViewBag.Message = "Your application description page.";
+            Superhero superhero = new Superhero();
+            return View(superhero);
+        }
 
-            return View();
+        public ActionResult Create(Superhero superhero)
+        {
+            db.Superheroes.Add(superhero);
+            db.SaveChanges();
+            return View("Index");
         }
 
         public ActionResult Contact()
